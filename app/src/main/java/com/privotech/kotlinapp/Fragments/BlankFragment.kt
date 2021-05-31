@@ -1,4 +1,4 @@
-package com.privotech.kotlinapp
+package com.privotech.kotlinapp.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
