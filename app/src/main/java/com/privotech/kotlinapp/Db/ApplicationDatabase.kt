@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [DataClass::class], version = 1)
+@Database(entities = [DataClass::class,CarClass::class], version = 2)
 abstract class ApplicationDatabase : RoomDatabase() {
     abstract fun setDao(): SetDAO?
+    abstract fun carDao(): carDao?
 
     companion object {
         private var INSTANCE: ApplicationDatabase? = null
