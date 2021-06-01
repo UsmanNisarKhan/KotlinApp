@@ -2,7 +2,7 @@ package com.privotech.kotlinapp.Classes
 
 import android.content.Context
 
-class Preferences(context : Context) {
+class Preferences(context : Context) {                                                              // Preferences Class
 
 
     companion object{

@@ -2,8 +2,10 @@ package com.privotech.kotlinapp.DependencyInjection_Hilt
 
 import android.content.Context
 import android.os.Handler
+import com.privotech.kotlinapp.Classes.Car
 import com.privotech.kotlinapp.Classes.Preferences
 import com.privotech.kotlinapp.Classes.User
+import com.privotech.kotlinapp.Classes.Utils
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,10 +33,16 @@ class ActivityInjection{
     }
 
     @Provides
-    fun getUser(@ActivityContext context : Context) : User {
+    fun getUser() : User {
 
-        return User(context)
+        return User()
 
+    }
+
+    @Provides
+    fun getUtils() : Utils{
+
+        return Utils()
     }
 
 }

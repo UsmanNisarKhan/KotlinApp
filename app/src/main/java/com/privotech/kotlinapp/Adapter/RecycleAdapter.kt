@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.privotech.kotlinapp.Db.DataClass
 import com.privotech.kotlinapp.R
 
-class RecycleAdapter(context: Context, var dataClass : List<DataClass>) : RecyclerView.Adapter<RecycleAdapter.DetailsClass>() {
+class RecycleAdapter(var context: Context, var dataClass : List<DataClass>) : RecyclerView.Adapter<RecycleAdapter.DetailsClass>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailsClass {

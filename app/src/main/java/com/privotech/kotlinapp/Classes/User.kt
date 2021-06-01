@@ -4,7 +4,7 @@ import android.content.Context
 
 //data class User(var name :String?)
 
-class User(context : Context){
+class User(){
 
     lateinit var name : String
 
