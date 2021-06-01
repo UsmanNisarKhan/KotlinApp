@@ -21,3 +21,11 @@ class CarClass {
     var power = ""
 
 }
+
+//data class CarClass (
+//
+//    @PrimaryKey() val id: Int,
+//    @ColumnInfo(name = "Tyres") val tyres: String?,
+//    @ColumnInfo(name = "Doors") val doors: String?,
+//    @ColumnInfo(name = "Power") val power: String?
+//)

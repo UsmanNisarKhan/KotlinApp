@@ -4,12 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.privotech.kotlinapp.Classes.Car
 
 @Dao
 interface carDao {
 
     @Insert
     fun insert(carClass : CarClass)
+
+    @Insert
+    fun insertAll(carClass : ArrayList<CarClass>)
 
     @Query("Select * FROM car_table")
     fun getAll() : LiveData<List<CarClass>>

@@ -70,8 +70,7 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener {
             R.id.btn1 ->
             {
 //                arrayList = ArrayList<Car>()
-                arrayList.add(Car("4","4","1300cc"))                                              // Adding elements in Model Class
-
+                arrayList.add(Car("4","4","1300"))                                            // Adding elements in Model Class
 
                 CoroutineScope(Dispatchers.IO).launch {
 
