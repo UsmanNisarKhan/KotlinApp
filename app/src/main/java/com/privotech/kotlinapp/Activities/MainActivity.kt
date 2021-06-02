@@ -174,7 +174,10 @@ class MainActivity : AppCompatActivity(){
 //
 //        dialog.show()
 
-        binding.circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.drawable.ic_baseline_menu_24, R.drawable.ic_baseline_close_24)
+
+
+        binding.circleMenu.setMainMenu(Color.parseColor("#CDCDCD"),                          //  Circular Menu
+            R.drawable.ic_baseline_menu_24, R.drawable.ic_baseline_close_24)
             .addSubMenu(Color.parseColor("#258CFF"), R.drawable.ic_baseline_menu_24)
             .addSubMenu(Color.parseColor("#30A400"), R.drawable.ic_baseline_menu_24)
             .addSubMenu(Color.parseColor("#FF4B32"), R.drawable.ic_baseline_menu_24)
@@ -184,7 +187,7 @@ class MainActivity : AppCompatActivity(){
 
                      if(it == 1)
                      {
-                         Toast.makeText(this@MainActivity,"Succcess",Toast.LENGTH_SHORT).show()
+                         Toast.makeText(this@MainActivity,"Success",Toast.LENGTH_SHORT).show()
                      }
 
 
@@ -193,14 +196,14 @@ class MainActivity : AppCompatActivity(){
                 override fun onMenuClosed() {}
             })
 
-    }
+        }
 
 
-    override fun onMenuOpened(featureId : Int , menu : Menu) : Boolean{
+            override fun onMenuOpened(featureId : Int , menu : Menu) : Boolean{
 
-        binding.circleMenu.openMenu()
-        return super.onMenuOpened(featureId, menu)
-    }
+                binding.circleMenu.openMenu()
+                return super.onMenuOpened(featureId, menu)
+        }
 
 }
 

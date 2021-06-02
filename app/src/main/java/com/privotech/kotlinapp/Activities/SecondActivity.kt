@@ -43,7 +43,7 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (preferences.getBoolean("Switch") == false) {
+        if (!preferences.getBoolean("Switch")) {
             setTheme(R.style.LightTheme)
         } else {
             setTheme(R.style.DarkTheme)
