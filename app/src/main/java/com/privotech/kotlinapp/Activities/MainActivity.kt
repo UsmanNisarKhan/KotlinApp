@@ -1,20 +1,19 @@
 package com.privotech.kotlinapp.Activities
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.privotech.kotlinapp.Activities.SecondActivity.Companion.showValue
 import com.privotech.kotlinapp.Adapter.RecycleAdapter
-import com.privotech.kotlinapp.Classes.Preferences
+import com.privotech.kotlinapp.Classes.*
 import com.privotech.kotlinapp.Classes.Preferences.Companion.u
-import com.privotech.kotlinapp.Classes.User
-import com.privotech.kotlinapp.Classes.Utils
 import com.privotech.kotlinapp.Db.ApplicationDatabase
 import com.privotech.kotlinapp.Db.DataClass
 import com.privotech.kotlinapp.R
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (preferences.getBoolean("Switch") == false) {
+        if (!preferences.getBoolean("Switch")) {
             setTheme(R.style.LightTheme)
         } else {
             setTheme(R.style.DarkTheme)
@@ -57,6 +56,11 @@ class MainActivity : AppCompatActivity(){
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)                                                                // Set the View
+
+//        if(preferences.getBoolean("Switch"))
+//        {
+//
+//        }
 
         binding.toggleSwitch.isChecked = preferences.getBoolean("Switch")
 
@@ -170,12 +174,33 @@ class MainActivity : AppCompatActivity(){
 //
 //        dialog.show()
 
+        binding.circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.drawable.ic_baseline_menu_24, R.drawable.ic_baseline_close_24)
+            .addSubMenu(Color.parseColor("#258CFF"), R.drawable.ic_baseline_menu_24)
+            .addSubMenu(Color.parseColor("#30A400"), R.drawable.ic_baseline_menu_24)
+            .addSubMenu(Color.parseColor("#FF4B32"), R.drawable.ic_baseline_menu_24)
+            .addSubMenu(Color.parseColor("#8A39FF"), R.drawable.ic_baseline_menu_24)
+            .addSubMenu(Color.parseColor("#FF6A00"), R.drawable.ic_baseline_menu_24)
+            .setOnMenuSelectedListener(OnMenuSelectedListener {
+
+                     if(it == 1)
+                     {
+                         Toast.makeText(this@MainActivity,"Succcess",Toast.LENGTH_SHORT).show()
+                     }
 
 
-
-
-
-
+            }).setOnMenuStatusChangeListener(object : OnMenuStatusChangeListener {
+                override fun onMenuOpened() {}
+                override fun onMenuClosed() {}
+            })
 
     }
+
+
+    override fun onMenuOpened(featureId : Int , menu : Menu) : Boolean{
+
+        binding.circleMenu.openMenu()
+        return super.onMenuOpened(featureId, menu)
+    }
+
 }
+
