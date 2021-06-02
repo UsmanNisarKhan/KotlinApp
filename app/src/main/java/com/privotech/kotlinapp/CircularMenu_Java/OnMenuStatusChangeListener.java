@@ -1,4 +1,4 @@
-package com.privotech.kotlinapp.Classes;
+package com.privotech.kotlinapp.CircularMenu_Java;
 
 public interface OnMenuStatusChangeListener {
 

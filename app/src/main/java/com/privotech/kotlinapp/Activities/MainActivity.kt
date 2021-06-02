@@ -12,6 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.privotech.kotlinapp.Activities.SecondActivity.Companion.showValue
 import com.privotech.kotlinapp.Adapter.RecycleAdapter
+import com.privotech.kotlinapp.CircularMenu_Java.OnMenuSelectedListener
+import com.privotech.kotlinapp.CircularMenu_Java.OnMenuStatusChangeListener
 import com.privotech.kotlinapp.Classes.*
 import com.privotech.kotlinapp.Classes.Preferences.Companion.u
 import com.privotech.kotlinapp.Db.ApplicationDatabase
@@ -185,13 +187,13 @@ class MainActivity : AppCompatActivity(){
             .addSubMenu(Color.parseColor("#FF6A00"), R.drawable.ic_baseline_menu_24)
             .setOnMenuSelectedListener(OnMenuSelectedListener {
 
-                     if(it == 1)
-                     {
-                         Toast.makeText(this@MainActivity,"Success",Toast.LENGTH_SHORT).show()
-                     }
+                if (it == 1) {
+                    Toast.makeText(this@MainActivity, "Success", Toast.LENGTH_SHORT).show()
+                }
 
 
-            }).setOnMenuStatusChangeListener(object : OnMenuStatusChangeListener {
+            }).setOnMenuStatusChangeListener(object :
+                OnMenuStatusChangeListener {
                 override fun onMenuOpened() {}
                 override fun onMenuClosed() {}
             })
