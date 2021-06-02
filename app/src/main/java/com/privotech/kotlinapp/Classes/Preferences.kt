@@ -9,7 +9,7 @@ class Preferences(context : Context) {                                          
         var u : Int = 0
     }
 
-    val prefer = context.getSharedPreferences("Pref",Context.MODE_PRIVATE)
+    val prefer = context.getSharedPreferences("Preferences",Context.MODE_PRIVATE)
 
 
     fun saveString(key : String , value : String){
@@ -36,6 +36,30 @@ class Preferences(context : Context) {                                          
     fun getBoolean(key : String) : Boolean
     {
         return prefer.getBoolean(key,false)
+    }
+
+    fun savaInt(key: String, value: Int)
+    {
+        val i = prefer.edit()
+        i.putInt(key,value)
+        i.apply()
+    }
+
+    fun getInt(key: String) : Int{
+
+        return prefer.getInt(key,0)
+    }
+
+    fun savaLong(key: String, value: Long)
+    {
+        val i = prefer.edit()
+        i.putLong(key,value)
+        i.apply()
+    }
+
+    fun getLong(key: String) : Long{
+
+        return prefer.getLong(key,0)
     }
 
 }
