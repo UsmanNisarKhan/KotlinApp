@@ -6,17 +6,18 @@ import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.privotech.kotlinapp.Activities.SecondActivity.Companion.showValue
 import com.privotech.kotlinapp.Adapter.RecycleAdapter
-import com.privotech.kotlinapp.Classes.Car
 import com.privotech.kotlinapp.Classes.Preferences
 import com.privotech.kotlinapp.Classes.Preferences.Companion.u
 import com.privotech.kotlinapp.Classes.User
 import com.privotech.kotlinapp.Classes.Utils
 import com.privotech.kotlinapp.Db.ApplicationDatabase
 import com.privotech.kotlinapp.Db.DataClass
+import com.privotech.kotlinapp.R
 import com.privotech.kotlinapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -24,6 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
@@ -45,8 +47,36 @@ class MainActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (preferences.getBoolean("Switch") == false) {
+            setTheme(R.style.LightTheme)
+        } else {
+            setTheme(R.style.DarkTheme)
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)                                                                // Set the View
+
+        binding.toggleSwitch.isChecked = preferences.getBoolean("Switch")
+
+        binding.toggleSwitch.setOnClickListener(View.OnClickListener {
+
+            if(binding.toggleSwitch.isChecked)
+            {
+                preferences.saveBoolean("Switch",true)
+                binding.toggleSwitch.isChecked = true
+            }
+            else
+            {
+                preferences.saveBoolean("Switch",false)
+                binding.toggleSwitch.isChecked = false
+            }
+
+            startActivity(Intent(this@MainActivity, this@MainActivity.javaClass).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+
+        })
+
 
         binding.button1.setOnClickListener(View.OnClickListener {
 
@@ -119,6 +149,33 @@ class MainActivity : AppCompatActivity(){
 //          startActivity(Intent(this@MainActivity,SecondActivity::class.java))                            // Intent in single line
 
         })
+
+
+
+//        var dialog = Dialog(this)                                                                     // Dialog
+//        dialog.setCancelable(true)
+//        dialog.setContentView(R.layout.activity_main)
+//        dialog.window?.setBackgroundDrawable(resources.getDrawable(R.drawable.ic_launcher_background))
+//
+//        var btn1 = dialog.findViewById(R.id.btn1) as Button
+//        var btn2 : Button = dialog.findViewById(R.id.btn2)
+//
+//        btn1.setOnClickListener(View.OnClickListener {
+//
+//        })
+//
+//        btn2.setOnClickListener(View.OnClickListener {
+//
+//        })
+//
+//        dialog.show()
+
+
+
+
+
+
+
 
     }
 }

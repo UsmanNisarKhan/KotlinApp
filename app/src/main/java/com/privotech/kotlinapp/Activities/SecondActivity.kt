@@ -14,20 +14,27 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.privotech.kotlinapp.Adapter.CarAdapter
 import com.privotech.kotlinapp.Classes.Car
+import com.privotech.kotlinapp.Classes.Preferences
 import com.privotech.kotlinapp.Db.ApplicationDatabase
 import com.privotech.kotlinapp.Db.CarClass
 import com.privotech.kotlinapp.R
 import com.privotech.kotlinapp.databinding.ActivitySecondBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 import kotlin.random.Random
 
+@AndroidEntryPoint
 class SecondActivity : AppCompatActivity() , View.OnClickListener {
 
     lateinit var binding : ActivitySecondBinding
 
     lateinit var carAdapter: CarAdapter
+
+    @Inject
+    lateinit var preferences : Preferences
 
 //    lateinit var arrayList : ArrayList<Car>                                                         // Array list not initialized
 
@@ -35,6 +42,13 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (preferences.getBoolean("Switch") == false) {
+            setTheme(R.style.LightTheme)
+        } else {
+            setTheme(R.style.DarkTheme)
+        }
+
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

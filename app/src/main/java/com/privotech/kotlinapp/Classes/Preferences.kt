@@ -26,4 +26,16 @@ class Preferences(context : Context) {                                          
 
     }
 
+    fun saveBoolean(key : String , status : Boolean)
+    {
+        val b = prefer.edit()
+        b.putBoolean(key,status)
+        b.apply()
+    }
+
+    fun getBoolean(key : String) : Boolean
+    {
+        return prefer.getBoolean(key,false)
+    }
+
 }
