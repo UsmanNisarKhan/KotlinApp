@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class BlankFragment : Fragment() {
 
     lateinit var binding : FragmentBlankBinding
-    val bind get() = binding
+    private val bind get() = binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,5 @@ class BlankFragment : Fragment() {
 
             bind.textView.text = "Kotlin"
     }
-
-
 
 }
