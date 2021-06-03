@@ -13,11 +13,13 @@
     <style name="LightTheme" parent="Theme.KotlinApp">
         <item name="textColor">#000000</item>
         <item name="bgColor">#ffffff</item>
+        <item name="drawable">@drawable/ic_launcher_background</item>
     </style>
 
     <style name="DarkTheme" parent="Theme.KotlinApp">
         <item name="textColor">#ffffff</item>
         <item name="bgColor">#000000</item>
+        <item name="drawable">@drawable/ic_launcher_foreground</item>
     </style>
 
 </resources>

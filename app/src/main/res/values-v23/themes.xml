@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.KotlinApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+
+        <item name="colorPrimary">#00d1ff</item>
+        <item name="colorPrimaryDark">#00d1ff</item>
+<!--        <item name="android:windowLightStatusBar">true</item>-->
+        <item name="colorAccent">#00d1ff</item>
+        -- change this one
+
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
