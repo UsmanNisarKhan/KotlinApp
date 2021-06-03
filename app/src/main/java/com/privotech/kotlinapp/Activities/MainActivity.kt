@@ -60,10 +60,6 @@ class MainActivity : AppCompatActivity(){
 
         setContentView(binding.root)                                                                // Set the View
 
-//        if(preferences.getBoolean("Switch"))
-//        {
-//
-//        }
 
         binding.toggleSwitch.isChecked = preferences.getBoolean("Switch")
 
