@@ -17,7 +17,7 @@
         android:theme="@style/Theme.KotlinApp">
 
         <activity android:name=".Activities.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".Activities.SecondActivity"

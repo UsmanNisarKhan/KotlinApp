@@ -12,8 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 class BlankFragment : Fragment() {
 
-    lateinit var binding : FragmentBlankBinding
-    private val bind get() = binding
+    var binding : FragmentBlankBinding? = null
+    private val bind get() = binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class BlankFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
         binding = FragmentBlankBinding.inflate(inflater,container,false)
@@ -37,6 +37,11 @@ class BlankFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
             bind.textView.text = "Kotlin"
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
 }
