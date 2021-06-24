@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.privotech.kotlinapp.Activities.SecondActivity.Companion.showValue
 import com.privotech.kotlinapp.Adapter.RecycleAdapter
 import com.privotech.kotlinapp.CircularMenu_Java.OnMenuSelectedListener
@@ -148,6 +150,13 @@ class MainActivity : AppCompatActivity(){
             intent.putExtra("Val",1)
             startActivity(intent)
             finish()
+
+//            Snackbar.make(it,"Close the app",Snackbar.LENGTH_SHORT)
+//                .setAction("Ok",View.OnClickListener {
+//
+//                    finish()
+//
+//                }).show()
 
 //          startActivity(Intent(this@MainActivity,SecondActivity::class.java))                            // Intent in single line
 
