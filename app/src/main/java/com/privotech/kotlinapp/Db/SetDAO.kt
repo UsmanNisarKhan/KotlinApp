@@ -11,7 +11,7 @@ interface SetDAO {
     @Insert
     fun insert(scanClass: DataClass?)
 
-    @Query("SELECT * FROM data_class")
+    @Query("SELECT * FROM data_class ORDER BY time DESC")
     fun getAll(): LiveData<List<DataClass>>
 
     @Query("Delete From data_class Where id == :id")
