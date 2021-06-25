@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [DataClass::class,CarClass::class], version = 2)
+@Database(entities = [DataClass::class,CarClass::class], version = 3)
 abstract class ApplicationDatabase : RoomDatabase() {
     abstract fun setDao(): SetDAO?
     abstract fun carDao(): carDao?

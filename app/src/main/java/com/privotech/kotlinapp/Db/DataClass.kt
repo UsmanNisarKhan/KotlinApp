@@ -19,4 +19,7 @@ class DataClass {
     @ColumnInfo(name = "Data")
     var data = ""
 
+    @ColumnInfo(name = "Time")
+    var time = 0L
+
 }

@@ -92,6 +92,7 @@ class MainActivity : AppCompatActivity(){
                 dataClass.title = "Name"
                 dataClass.type = "1"
                 dataClass.data = "Body"
+                dataClass.time = System.currentTimeMillis()
 
 
                 val b = ApplicationDatabase.getDatabase(this@MainActivity)
